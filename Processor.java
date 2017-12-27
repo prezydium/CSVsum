@@ -24,13 +24,13 @@ public class Processor{
 
 
 
-    public String doJob(File file){
+    public String doJob(File file) throws FileNotFoundException{
 
       //  Processor proc1 = new Processor();
 
         //System.out.println(proc1.fileToString());
 
-        String content = this.fileToString();
+        String content = this.fileToString(file);
 
         Finder finder = new Finder(content);
 
@@ -40,16 +40,10 @@ public class Processor{
     }
 
 
-    public static String fileToString(File file){
+    public static String fileToString(File file) throws FileNotFoundException{
         StringBuilder sb = new StringBuilder();
-        try {
-            File file = new File("d:\\xxx.csv");
-           // Scanner sc = new Scanner(file, "UTF-8");
-            //FileReader fr = new FileReader("d:\\xxx.csv", UTF-8);
-            //BufferedReader br = new BufferedReader(fr);
-           InputStreamReader is = new InputStreamReader(new FileInputStream("d:\\xxx.csv"));
-          //  Scanner sc = new Scanner(is);
-          //  System.out.println(is.getEncoding());
+
+
             Scanner sc = new Scanner(new FileInputStream(file), "ISO-8859-2");
 
 
@@ -62,12 +56,7 @@ public class Processor{
                 sb.append(line);
             }
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
 
-        }
 
         return sb.toString();
     }

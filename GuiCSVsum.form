@@ -20,6 +20,8 @@
             <properties>
               <editable value="false"/>
               <font size="20"/>
+              <lineWrap value="true"/>
+              <margin top="5" left="10" bottom="5" right="10"/>
             </properties>
           </component>
         </children>

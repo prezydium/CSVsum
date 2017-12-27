@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class GuiCSVsum{
     private JPanel panel1;
@@ -31,9 +32,15 @@ public class GuiCSVsum{
             public void actionPerformed(ActionEvent e) {
                 JFileChooser fc = new JFileChooser();
                 fc.showOpenDialog(fc);
-                file = fc.getSelectedFile();
-                Processor proc1 = new Processor();
-                textArea1.append(proc1.doJob(file));
+                if (fc.getSelectedFile()!=null) {
+                    file = fc.getSelectedFile();
+                    Processor proc1 = new Processor();
+                    try {
+                        textArea1.append(proc1.doJob(file));
+                    } catch (FileNotFoundException e1) {
+                        e1.printStackTrace();
+                    }
+                }
             }
         });
     }

@@ -19,7 +19,9 @@ public class Finder {
                 x= s.indexOf(currentStreet, x) + 1;
                 howMany++;
             }
-            sbfinder.append(currentStreet + " " + howMany + "\n");
+            if(howMany>0) {
+                sbfinder.append(howMany + " " + currentStreet + "\n");
+            }
         }
     result = sbfinder.toString();
     }

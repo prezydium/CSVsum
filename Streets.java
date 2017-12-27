@@ -1259,7 +1259,6 @@ public class Streets {
             "SZARA",
             "SZAROTKI",
             "SZCZECIŃSKA",
-            "SZCZECIŃŚKA",
             "SZCZEPANA PILECKIEGO",
             "SZCZĘŚLIWA",
             "SZCZODRA",
