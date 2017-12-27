@@ -1,29 +1,46 @@
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
+
+import java.awt.*;
 import java.io.*;
 import java.util.Scanner;
 
-public class Processor {
+public class Processor{
 
 
 
     public static void main(String[] args){
 
-        Processor proc1 = new Processor();
-
-
-        //System.out.println(proc1.fileToString());
-
-        String content = proc1.fileToString();
-
-        Finder finder = new Finder(content);
-
-        System.out.println(finder.getResult());
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                GuiCSVsum guiCSVsum = new GuiCSVsum();
+            }
+        });
 
 
 
     }
 
 
-    public static String fileToString(){
+
+    public String doJob(File file){
+
+      //  Processor proc1 = new Processor();
+
+        //System.out.println(proc1.fileToString());
+
+        String content = this.fileToString();
+
+        Finder finder = new Finder(content);
+
+        return finder.getResult();
+
+
+    }
+
+
+    public static String fileToString(File file){
         StringBuilder sb = new StringBuilder();
         try {
             File file = new File("d:\\xxx.csv");
@@ -32,7 +49,7 @@ public class Processor {
             //BufferedReader br = new BufferedReader(fr);
            InputStreamReader is = new InputStreamReader(new FileInputStream("d:\\xxx.csv"));
           //  Scanner sc = new Scanner(is);
-            System.out.println(is.getEncoding());
+          //  System.out.println(is.getEncoding());
             Scanner sc = new Scanner(new FileInputStream(file), "ISO-8859-2");
 
 
